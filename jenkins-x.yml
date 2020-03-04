@@ -19,9 +19,9 @@ pipelineConfig:
             name: chart
             options:
               volumes:
-                - name: charts-secret
+                - name: chart-secret
                   secret:
-                    secretName: charts-secret
+                    secretName: chart-secret
                     items:
                       - key: credentials.json
                         path: chart/credentials.json
