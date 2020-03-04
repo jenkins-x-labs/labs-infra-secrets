@@ -1,0 +1,37 @@
+pipelineConfig:
+  pipelines:
+    pullRequest:
+      pipeline:
+        stages:
+          - agent:
+              image: gcr.io/jenkinsxio-labs/helm:0.0.2
+            name: ci
+            steps:
+              - name: build-chart
+                command: make build
+                dir: /workspace/source/charts/gsm-controller
+    release:
+      pipeline:
+        stages:
+          - agent:
+              image: gcr.io/jenkinsxio-labs/helm:0.0.2
+            name: chart
+            options:
+              volumes:
+                - name: charts-secret
+                  secret:
+                    secretName: charts-secret
+                    items:
+                      - key: credentials.json
+                        path: chart/credentials.json
+              containerOptions:
+                volumeMounts:
+                  - name: chart-secret
+                    mountPath: /secrets
+            steps:
+              - name: release-chart
+                command: make release
+                dir: /workspace/source/charts/gsm-controller
+                env:
+                  - name: GOOGLE_APPLICATION_CREDENTIALS
+                    value: /secrets/chart/credentials.json
