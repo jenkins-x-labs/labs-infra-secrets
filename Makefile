@@ -1,4 +1,4 @@
-CHART_REPO := https://storage.googleapis.com/jenkinsxio-labs/charts
+CHART_REPO := gs://jenkinsxio-labs/charts
 NAME := labs-infra-secrets
 OS := $(shell uname)
 
@@ -27,5 +27,5 @@ release: clean
 	helm lint
 	helm package .
 	helm repo add jx-labs $(CHART_REPO)
-	helm gcs push ${NAME}*.tgz jx-labs
+	helm gcs push ${NAME}*.tgz jx-labs --public
 	rm -rf ${NAME}*.tgz%
