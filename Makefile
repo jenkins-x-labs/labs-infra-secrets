@@ -1,4 +1,4 @@
-CHART_REPO := gs://jenkinsxio-labs/charts
+CHART_REPO := https://storage.googleapis.com/jenkinsxio-labs/charts
 NAME := labs-infra-secrets
 OS := $(shell uname)
 
