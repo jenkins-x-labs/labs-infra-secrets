@@ -5,7 +5,7 @@ pipelineConfig:
       pipeline:
         stages:
           - agent:
-              image: gcr.io/jenkinsxio-labs/helm:0.0.16
+              image: gcr.io/jenkinsxio-labs/helm:0.0.18
             name: ci
             steps:
               - name: build-chart
@@ -14,7 +14,7 @@ pipelineConfig:
       pipeline:
         stages:
           - agent:
-              image: gcr.io/jenkinsxio-labs/helm:0.0.16
+              image: gcr.io/jenkinsxio-labs/helm:0.0.18
             name: chart
             options:
               volumes:
