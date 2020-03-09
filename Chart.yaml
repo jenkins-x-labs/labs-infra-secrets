@@ -1,5 +1,5 @@
 apiVersion: v2
-appVersion: 0.0.1
+appVersion: 0.0.27
 description: Kubernetes secret resources for Jenkins X Labs infrastructure
 name: labs-infra-secrets
-version: 0.0.1
+version: 0.0.27
