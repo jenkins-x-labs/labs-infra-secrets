@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  annotations:
+    jenkins-x.io/gsm-kubernetes-secret-key: password
+    jenkins-x.io/gsm-secret-id: bdd-pipeline-token-github
+  name: bdd-pipeline-token-github
+type: Opaque
