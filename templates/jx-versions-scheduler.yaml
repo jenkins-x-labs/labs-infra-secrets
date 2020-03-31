@@ -19,7 +19,7 @@ spec:
     replace: true
     entries:
     - agent: tekton
-      alwaysRun: false
+      alwaysRun: true
       context: boot-helm3
       name: boot-helm3
       queries:
