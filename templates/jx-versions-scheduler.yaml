@@ -49,6 +49,36 @@ spec:
       rerunCommand: /test boot-helm3
       trigger: (?m)^/test( all| boot-helm3),?(s+|$)
     - agent: tekton
+      alwaysRun: true
+      context: vault
+      name: vault
+      queries:
+      - labels:
+          entries:
+          - approved
+          - lgtm
+        missingLabels:
+          entries:
+          - do-not-merge
+          - do-not-merge/hold
+          - do-not-merge/work-in-progress
+          - needs-ok-to-test
+          - needs-rebase
+      - labels:
+          entries:
+            - updatebot
+        missingLabels:
+          entries:
+            - do-not-merge
+            - do-not-merge/hold
+            - do-not-merge/work-in-progress
+            - needs-ok-to-test
+            - needs-rebase
+            - needs-security-review
+      report: true
+      rerunCommand: /test vault
+      trigger: (?m)^/test( all| vault),?(s+|$)
+    - agent: tekton
       alwaysRun: false
       context: boot-helm3-mc
       name: boot-helm3-mc
