@@ -25,6 +25,7 @@ spec:
             - --filter=*
             - --images
             - --excludes=jetstack/cert-manager
+            - --excludes=bitnami/external-dns
             - --batch-mode
             command:
             - jx
