@@ -34,10 +34,6 @@ spec:
             resources: {}
             terminationMessagePath: /dev/termination-log
             terminationMessagePolicy: File
-            volumeMounts:
-              - name: bdd-secret
-                mountPath: "/builder/home/"
-                readOnly: true
           dnsPolicy: ClusterFirst
           restartPolicy: Never
           serviceAccountName: tekton-bot
