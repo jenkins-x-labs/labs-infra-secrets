@@ -28,7 +28,7 @@ spec:
             env:
             - name: JX_LOG_FORMAT
               value: json
-            image: gcr.io/jenkinsxio/builder-go:{{ .Values.versions.builders }}
+            image: gcr.io/jenkinsxio-labs/jxl:{{ .Values.jxl.version }}
             imagePullPolicy: IfNotPresent
             name: e2e-gc
             resources: {}
