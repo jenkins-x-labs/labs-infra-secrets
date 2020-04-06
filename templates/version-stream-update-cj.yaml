@@ -29,6 +29,7 @@ spec:
             - --excludes=external-secrets/kubernetes-external-secrets
             - --excludes=flagger/flagger
             - --excludes=flagger/grafana
+            - --excludes=gloo/gloo
             - --batch-mode
             command:
             - jx
