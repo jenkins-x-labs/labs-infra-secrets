@@ -27,7 +27,7 @@ spec:
             - --excludes=jetstack/cert-manager
             - --excludes=bitnami/external-dns
             - --excludes=external-secrets/kubernetes-external-secrets
-            - --excludes=flagger/flagger
+            - --excludes=flagger
             - --batch-mode
             command:
             - jx
