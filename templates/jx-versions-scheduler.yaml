@@ -20,8 +20,8 @@ spec:
     entries:
     - agent: tekton
       alwaysRun: true
-      context: boot-helm3
-      name: boot-helm3
+      context: gke
+      name: gke
       queries:
       - labels:
           entries:
@@ -46,8 +46,188 @@ spec:
             - needs-rebase
             - needs-security-review
       report: true
-      rerunCommand: /test boot-helm3
-      trigger: (?m)^/test( all| boot-helm3),?(s+|$)
+      rerunCommand: /test gke
+      trigger: (?m)^/test( all| gke),?(s+|$)
+    - agent: tekton
+      alwaysRun: false
+      context: gsm
+      name: gsm
+      queries:
+      - labels:
+          entries:
+          - approved
+          - lgtm
+        missingLabels:
+          entries:
+          - do-not-merge
+          - do-not-merge/hold
+          - do-not-merge/work-in-progress
+          - needs-ok-to-test
+          - needs-rebase
+      - labels:
+          entries:
+            - updatebot
+        missingLabels:
+          entries:
+            - do-not-merge
+            - do-not-merge/hold
+            - do-not-merge/work-in-progress
+            - needs-ok-to-test
+            - needs-rebase
+            - needs-security-review
+      report: true
+      rerunCommand: /test gsm
+      trigger: (?m)^/test( all| gsm),?(s+|$)
+    - agent: tekton
+      alwaysRun: false
+      context: kube
+      name: kube
+      queries:
+      - labels:
+          entries:
+          - approved
+          - lgtm
+        missingLabels:
+          entries:
+          - do-not-merge
+          - do-not-merge/hold
+          - do-not-merge/work-in-progress
+          - needs-ok-to-test
+          - needs-rebase
+      - labels:
+          entries:
+            - updatebot
+        missingLabels:
+          entries:
+            - do-not-merge
+            - do-not-merge/hold
+            - do-not-merge/work-in-progress
+            - needs-ok-to-test
+            - needs-rebase
+            - needs-security-review
+      report: true
+      rerunCommand: /test kube
+      trigger: (?m)^/test( all| kube),?(s+|$)
+    - agent: tekton
+      alwaysRun: false
+      context: mc
+      name: mc
+      queries:
+      - labels:
+          entries:
+          - approved
+          - lgtm
+        missingLabels:
+          entries:
+          - do-not-merge
+          - do-not-merge/hold
+          - do-not-merge/work-in-progress
+          - needs-ok-to-test
+          - needs-rebase
+      - labels:
+          entries:
+            - updatebot
+        missingLabels:
+          entries:
+            - do-not-merge
+            - do-not-merge/hold
+            - do-not-merge/work-in-progress
+            - needs-ok-to-test
+            - needs-rebase
+            - needs-security-review
+      report: true
+      rerunCommand: /test mc
+      trigger: (?m)^/test( all| mc),?(s+|$)
+    - agent: tekton
+      alwaysRun: false
+      context: storage
+      name: storage
+      queries:
+      - labels:
+          entries:
+          - approved
+          - lgtm
+        missingLabels:
+          entries:
+          - do-not-merge
+          - do-not-merge/hold
+          - do-not-merge/work-in-progress
+          - needs-ok-to-test
+          - needs-rebase
+      - labels:
+          entries:
+            - updatebot
+        missingLabels:
+          entries:
+            - do-not-merge
+            - do-not-merge/hold
+            - do-not-merge/work-in-progress
+            - needs-ok-to-test
+            - needs-rebase
+            - needs-security-review
+      report: true
+      rerunCommand: /test storage
+      trigger: (?m)^/test( all| storage),?(s+|$)
+    - agent: tekton
+      alwaysRun: false
+      context: terraform
+      name: terraform
+      queries:
+      - labels:
+          entries:
+          - approved
+          - lgtm
+        missingLabels:
+          entries:
+          - do-not-merge
+          - do-not-merge/hold
+          - do-not-merge/work-in-progress
+          - needs-ok-to-test
+          - needs-rebase
+      - labels:
+          entries:
+            - updatebot
+        missingLabels:
+          entries:
+            - do-not-merge
+            - do-not-merge/hold
+            - do-not-merge/work-in-progress
+            - needs-ok-to-test
+            - needs-rebase
+            - needs-security-review
+      report: true
+      rerunCommand: /test terraform
+      trigger: (?m)^/test( all| terraform),?(s+|$)
+    - agent: tekton
+      alwaysRun: false
+      context: tls
+      name: tls
+      queries:
+      - labels:
+          entries:
+          - approved
+          - lgtm
+        missingLabels:
+          entries:
+          - do-not-merge
+          - do-not-merge/hold
+          - do-not-merge/work-in-progress
+          - needs-ok-to-test
+          - needs-rebase
+      - labels:
+          entries:
+            - updatebot
+        missingLabels:
+          entries:
+            - do-not-merge
+            - do-not-merge/hold
+            - do-not-merge/work-in-progress
+            - needs-ok-to-test
+            - needs-rebase
+            - needs-security-review
+      report: true
+      rerunCommand: /test tls
+      trigger: (?m)^/test( all| tls),?(s+|$)
     - agent: tekton
       alwaysRun: true
       context: vault
@@ -78,34 +258,4 @@ spec:
       report: true
       rerunCommand: /test vault
       trigger: (?m)^/test( all| vault),?(s+|$)
-    - agent: tekton
-      alwaysRun: false
-      context: boot-helm3-mc
-      name: boot-helm3-mc
-      queries:
-      - labels:
-          entries:
-          - approved
-          - lgtm
-        missingLabels:
-          entries:
-          - do-not-merge
-          - do-not-merge/hold
-          - do-not-merge/work-in-progress
-          - needs-ok-to-test
-          - needs-rebase
-      - labels:
-          entries:
-            - updatebot
-        missingLabels:
-          entries:
-            - do-not-merge
-            - do-not-merge/hold
-            - do-not-merge/work-in-progress
-            - needs-ok-to-test
-            - needs-rebase
-            - needs-security-review
-      report: true
-      rerunCommand: /test boot-helm3-mc
-      trigger: (?m)^/test( all| boot-helm3-mc),?(s+|$)
 
