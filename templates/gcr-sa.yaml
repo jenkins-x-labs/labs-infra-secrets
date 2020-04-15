@@ -1,8 +1,0 @@
-apiVersion: v1
-kind: Secret
-metadata:
-  annotations:
-    jenkins-x.io/gsm-kubernetes-secret-key: credentials.json
-    jenkins-x.io/gsm-secret-id: labs-infra-gcr-sa
-  name: gcr-sa
-type: Opaque

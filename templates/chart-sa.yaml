@@ -1,8 +1,0 @@
-apiVersion: v1
-kind: Secret
-metadata:
-  annotations:
-    jenkins-x.io/gsm-kubernetes-secret-key: credentials.json
-    jenkins-x.io/gsm-secret-id: labs-infra-chart-sa
-  name: chart-sa
-type: Opaque
